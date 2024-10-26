@@ -1,13 +1,25 @@
-<script setup lang="ts">
-import { RouterView } from 'vue-router'
+
+<script lang="ts" setup>
+import { computed } from 'vue';
+import enUS from '@arco-design/web-vue/es/locale/lang/en-us';
+import zhCN from '@arco-design/web-vue/es/locale/lang/zh-cn';
+import useLocale from '@/hooks/locale';
+
+const { currentLocale } = useLocale();
+const locale = computed(() => {
+  switch (currentLocale.value) {
+    case 'zh-CN':
+      return zhCN;
+    case 'en-US':
+      return enUS;
+    default:
+      return enUS;
+  }
+});
 </script>
 
 <template>
-  <h1 class="bg-amber-50 underline">
-    This is the app view
-  </h1>
-  <RouterView />
+  <a-config-provider :locale="locale">
+    <router-view />
+  </a-config-provider>
 </template>
-
-<style scoped>
-</style>
