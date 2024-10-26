@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import useLocale from '@/hooks/locale'
-import { Navigation } from '@/utils/nagivation'
+import navigation from '@/utils/nagivation'
 import http from '@/utils/http'
-import { h, ref } from 'vue'
+import { ref } from 'vue'
+import Header from '@/components/header/index.vue'
+import Footer from '@/components/footer/index.vue'
 
 const i18n = useLocale()
 const switchLocale = () => {
@@ -20,13 +22,15 @@ const sendHttp = async () => {
 </script>
 
 <template>
+  <Header />
   This is the index view
   {{ $t('menu.dashboard') }}
   <a-button type="primary" @click="switchLocale">{{
     $t('settings.language')
   }}</a-button>
-  <a-button @click="Navigation.push('/about')">To 404</a-button>
+  <a-button @click="navigation.push('/about')">To 404</a-button>
   <a-input v-model="url" />
   <a-button @click="sendHttp">Send Http</a-button>
   {{ data}}
+  <Footer />
 </template>

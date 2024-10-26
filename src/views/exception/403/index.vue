@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import PermissionDenied from '@/assets/images/exception/403.vue'
-import { Navigation } from '@/utils/nagivation'
+import navigation from '@/utils/nagivation'
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import { Navigation } from '@/utils/nagivation'
       <PermissionDenied class="w-64"/>
     </template>
     <template #extra>
-      <a-button @click="Navigation.back()">{{ $t('exception.result.403.back') }}</a-button>
+      <a-button @click="navigation.back()">{{ $t('exception.result.403.back') }}</a-button>
     </template>
   </a-result>
 </template>

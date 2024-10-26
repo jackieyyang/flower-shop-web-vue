@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ServerError from '@/assets/images/exception/500.vue'
-import { Navigation } from '@/utils/nagivation'
+import navigation from '@/utils/nagivation'
 </script>
 
 <template>
@@ -9,7 +9,7 @@ import { Navigation } from '@/utils/nagivation'
       <ServerError class="w-64"/>
     </template>
     <template #extra>
-      <a-button type="primary" @click="Navigation.back()">{{ $t('exception.result.500.back') }}</a-button>
+      <a-button type="primary" @click="navigation.back()">{{ $t('exception.result.500.back') }}</a-button>
     </template>
   </a-result>
 </template>

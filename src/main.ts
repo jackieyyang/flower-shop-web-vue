@@ -9,13 +9,13 @@ import '@arco-design/web-vue/dist/arco.css';
 import i18n from './locale';
 import App from './App.vue'
 import router from './router'
-import { Navigation } from '@/utils/nagivation'
+import navigation from '@/utils/nagivation'
 
 if (import.meta.env.DEV && import.meta.env.VITE_USE_MOCK === 'true') {
   import ('./mock')
 }
 
-Navigation.init(router)
+navigation.init(router)
 
 const app = createApp(App)
 

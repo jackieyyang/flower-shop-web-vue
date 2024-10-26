@@ -1,66 +1,77 @@
-// navigation.ts
 import type { Router, RouteLocationRaw } from 'vue-router'
+import { ref } from 'vue'
 
-export class Navigation {
-  private static router: Router
+const router = ref<Router>()
 
-  // Initialize
-  static init(router: Router) {
-    this.router = router
-    console.log('Navigation initialized with router:', router)
+const init = (vueRouter: Router) => {
+  router.value = vueRouter
+  console.log('Navigation initialized with router:', router.value)
+}
+
+const push = async (to: string | RouteLocationRaw, query?: Record<string, never>) => {
+  if (!router.value) return
+
+  if (typeof to === 'string') {
+    await router.value.push({
+      path: to,
+      query
+    })
+  } else {
+    await router.value.push(to)
   }
+}
 
-  // Navigate to a new page
-  static async push(to: string | RouteLocationRaw, query?: Record<string, never>) {
-    if (typeof to === 'string') {
-      await this.router.push({
-        path: to,
-        query
-      })
-    } else {
-      await this.router.push(to)
-    }
-  }
+const replace = async (to: string | RouteLocationRaw, query?: Record<string, never>) => {
+  if (!router.value) return
 
-  // Replace current page
-  static async replace(to: string | RouteLocationRaw, query?: Record<string, never>) {
-    if (typeof to === 'string') {
-      await this.router.replace({
-        path: to,
-        query
-      })
-    } else {
-      await this.router.replace(to)
-    }
+  if (typeof to === 'string') {
+    await router.value.replace({
+      path: to,
+      query
+    })
+  } else {
+    await router.value.replace(to)
   }
+}
 
-  // Refresh current page
-  static refresh() {
-    this.router.go(0)
-  }
+const refresh = () => {
+  if (!router.value) return
+  router.value.go(0)
+}
 
-  // Go back to previous page
-  static back() {
-    this.router.back()
-  }
+const back = () => {
+  if (!router.value) return
+  router.value.back()
+}
 
-  // Get route parameters
-  static getParams(key: string) {
-    return this.router.currentRoute.value.params[key]
-  }
+const getParams = (key: string) => {
+  if (!router.value) return undefined
+  return router.value.currentRoute.value.params[key]
+}
 
-  // Get query parameters
-  static getQuery(key: string) {
-    return this.router.currentRoute.value.query[key]
-  }
+const getQuery = (key: string) => {
+  if (!router.value) return undefined
+  return router.value.currentRoute.value.query[key]
+}
 
-  // Get current route path
-  static getCurrentPath() {
-    return this.router.currentRoute.value.path
-  }
+const getCurrentPath = () => {
+  if (!router.value) return ''
+  return router.value.currentRoute.value.path
+}
 
-  // Get current full route path (including parameters)
-  static getCurrentFullPath() {
-    return this.router.currentRoute.value.fullPath
-  }
+const getCurrentFullPath = () => {
+  if (!router.value) return ''
+  return router.value.currentRoute.value.fullPath
+}
+
+export default {
+  init,
+  push,
+  replace,
+  refresh,
+  back,
+  getParams,
+  getQuery,
+  getCurrentPath,
+  getCurrentFullPath
 }
