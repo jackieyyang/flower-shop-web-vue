@@ -9,6 +9,10 @@ import i18n from './locale';
 import App from './App.vue'
 import router from './router'
 
+if (import.meta.env.DEV && import.meta.env.VITE_USE_MOCK === 'true') {
+  import ('./mock')
+}
+
 const app = createApp(App)
 
 app.use(createPinia().use(piniaPluginPersistedstate))
