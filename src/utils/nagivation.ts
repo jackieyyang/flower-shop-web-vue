@@ -7,6 +7,7 @@ export class Navigation {
   // Initialize
   static init(router: Router) {
     this.router = router
+    console.log('Navigation initialized with router:', router)
   }
 
   // Navigate to a new page
@@ -31,6 +32,11 @@ export class Navigation {
     } else {
       await this.router.replace(to)
     }
+  }
+
+  // Refresh current page
+  static refresh() {
+    this.router.go(0)
   }
 
   // Go back to previous page

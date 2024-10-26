@@ -41,8 +41,14 @@ export default {
   'settings.color.tooltip':
     '根据主题颜色生成的 10 个梯度色（将配置复制到项目中，主题色才能对亮色 / 暗黑模式同时生效）',
   'settings.menuFromServer': '菜单来源于后台',
+  'menu.exception.403': '403',
+  'exception.result.403.description': '对不起，您没有访问该资源的权限',
+  'exception.result.403.back': '返回',
   'menu.exception.404': '404',
   'exception.result.404.description': '抱歉，页面不见了～',
   'exception.result.404.retry': '重试',
   'exception.result.404.back': '返回',
+  'menu.exception.500': '500',
+  'exception.result.500.description': '抱歉，服务器出了点问题～',
+  'exception.result.500.back': '返回',
 };

@@ -24,6 +24,4 @@ const router = createRouter({
   ],
 })
 
-Navigation.init(router)
-
 export default router
