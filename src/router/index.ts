@@ -23,4 +23,5 @@ const router = createRouter({
   ],
 })
 
+console.log("base_URL", import.meta.env.BASE_URL)
 export default router
