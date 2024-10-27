@@ -10,7 +10,7 @@ const init = (vueRouter: Router) => {
 
 const push = async (to: string | RouteLocationRaw, query?: Record<string, never>) => {
   if (!router.value) return
-  console.log('Pushing to:', to)
+
   if (typeof to === 'string') {
     await router.value.push({
       path: to,
