@@ -1,0 +1,1 @@
+import{_ as o,c,a as n,t,o as r}from"./index-dmAv872A.js";const s={};function a(e,l){return r(),c("div",null,[n("h1",null,t(e.$t("menu.exception.404")),1),n("p",null,t(e.$t("exception.result.404.description")),1)])}const p=o(s,[["render",a]]);export{p as default};
