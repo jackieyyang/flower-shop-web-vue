@@ -1,4 +1,4 @@
-// src/utils/http/index.ts
+// src/utils/http/home.ts
 import axios from 'axios'
 import type { AxiosInstance } from 'axios'
 import { Message } from '@arco-design/web-vue'

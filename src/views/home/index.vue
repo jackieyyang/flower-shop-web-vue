@@ -23,14 +23,18 @@ const sendHttp = async () => {
 
 <template>
   <Header />
-  This is the index view
-  {{ $t('menu.dashboard') }}
-  <a-button type="primary" @click="switchLocale">{{
-    $t('settings.language')
-  }}</a-button>
-  <a-button @click="navigation.push('/about')">To 404</a-button>
-  <a-input v-model="url" />
-  <a-button @click="sendHttp">Send Http</a-button>
-  {{ data}}
+  <div class="w-full">
+    <div class="max-w-[1280px] flex justify-center items-center mx-auto min-h-24 px-4 xl:px-0">
+      This is the index view
+      {{ $t('menu.dashboard') }}
+      <a-button type="primary" @click="switchLocale">{{
+          $t('settings.language')
+        }}</a-button>
+      <a-button @click="navigation.push('/about')">To 404</a-button>
+      <a-input v-model="url" />
+      <a-button @click="sendHttp">Send Http</a-button>
+      {{ data}}
+    </div>
+  </div>
   <Footer />
 </template>
