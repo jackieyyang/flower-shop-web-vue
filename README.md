@@ -39,3 +39,5 @@ npm run build
 ```sh
 npm run lint
 ```
+
+\> md [768px] show the content of detail, otherwise show the brief on the mobile
