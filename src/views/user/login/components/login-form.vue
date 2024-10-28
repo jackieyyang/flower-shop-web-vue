@@ -14,8 +14,10 @@ const handleSubmit = () => {
   console.log('submit');
 };
 
-const setRememberPassword = (value: boolean) => {
-  loginConfig.rememberPassword = value;
+const setRememberPassword = (value: boolean | (string | number | boolean)[], ev: Event) => {
+  if (typeof value === 'boolean') {
+    loginConfig.rememberPassword = value;
+  }
 };
 </script>
 
